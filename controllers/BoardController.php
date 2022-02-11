@@ -42,7 +42,7 @@ class BoardController extends Controller
         $model = new Board(['is_public' => true]);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->htmlRedirect(['@kanban/plan/index']);
+            return $this->htmlRedirect(['/kanban/plan/index']);
         }
 
         return $this->renderAjax('create', [
