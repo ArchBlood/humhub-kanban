@@ -39,12 +39,10 @@ class BoardController extends Controller
      */
     public function actionCreate(): string
     {
-        $model = new Board([
-            'is_public' => true
-        ]);
+        $model = new Board(['is_public' => true]);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->htmlRedirect(['plan/index']);
+            return $this->htmlRedirect(['@kanban/plan/index']);
         }
 
         return $this->renderAjax('create', [
